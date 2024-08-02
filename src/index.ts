@@ -13,9 +13,10 @@ app.use(cors());
 app.get("/api/recipes/search", async (req, res) => {
   const searchTerm = req.query.searchTerm as string;
   const page = parseInt(req.query.page as string);
-  const results = await RecipeAPI.searchRecipes(searchTerm, page);
+  console.log("i was here");
+  // const results = await RecipeAPI.searchRecipes(searchTerm, page);
 
-  return res.json(results);
+  return res.json("i was here");
 });
 
 app.get("/api/recipes/:recipeId/summary", async (req, res) => {
