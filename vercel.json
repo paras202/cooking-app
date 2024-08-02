@@ -1,0 +1,12 @@
+{
+    "buildCommand": "cd backend && npm install && npx prisma generate && cd ../frontend && npm install && npm run build",
+    "outputDirectory": "frontend/dist",
+    "rewrites": [
+      { "source": "/api/(.*)", "destination": "/backend/src/index.ts" },
+      { "source": "/(.*)", "destination": "/frontend/dist/$1" }
+    ],
+    "env": {
+        "DATABASE_URL":"postgresql://postgres.hpptaipbwtglkhailnsn:9460938986@paras@aws-0-ap-south-1.pooler.supabase.com:5432/postgres",
+        "API_KEY":"377aa308bb014e84a97d392693b29107"   
+    }
+  }
