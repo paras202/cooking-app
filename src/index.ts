@@ -13,10 +13,16 @@ app.use(cors());
 app.get("/api/recipes/search", async (req, res) => {
   const searchTerm = req.query.searchTerm as string;
   const page = parseInt(req.query.page as string);
-  console.log("i was here");
-  // const results = await RecipeAPI.searchRecipes(searchTerm, page);
 
-  return res.json("i was here");
+  try {
+    const results = await RecipeAPI.searchRecipes(searchTerm, page);
+    return res.json(results);
+  } catch (error) {
+    console.error("Error searching recipes:", error);
+    return res.status(500).json({ error: "Failed to fetch recipes" });
+  }
+  // const results = await RecipeAPI.searchRecipes(searchTerm, page);
+  
 });
 
 app.get("/api/recipes/:recipeId/summary", async (req, res) => {
