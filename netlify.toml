@@ -1,8 +1,15 @@
+# Build settings
 [build]
+  # Directory where the frontend code is located
   base = "frontend"
-  publish = "frontend/dist"
+  
+  # Command to build your site
   command = "npm run build"
+  
+  # Directory where the built files are located (relative to 'base')
+  publish = "dist"
 
+# Redirect rule for single-page applications
 [[redirects]]
   from = "/*"
   to = "/index.html"
